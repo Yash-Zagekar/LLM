@@ -37,7 +37,7 @@ def set_custom_css():
 
 def create_streamlit_app(llm, portfolio, clean_text):
     st.markdown("<h1 style='font-family: Poppins;'>📧 Business Mail Generator</h1>", unsafe_allow_html=True)
-    url_input = st.text_input("Enter a URL:", value="https://www.naukri.com/tata-communications-jobs")
+    url_input = st.text_input("Enter a URL:", value="https://hrmos.co/pages/moneyforward/jobs?category=1862070723159687168")
     submit_button = st.button("Submit")
 
     if submit_button:
