@@ -35,8 +35,68 @@ def set_custom_css():
         unsafe_allow_html=True
     )
 
+    def display_links():
+        st.markdown(
+            """
+    <style>
+        .box {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+        .link {
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+
+    <div class="box">
+        <strong>Test Links:</strong> <br><br>
+        <p>Money forward company job description link.</p>
+        <p class="link">https://hrmos.co/pages/moneyforward/jobs/1877612029521268793</p>
+        <br><br>
+        <p>Tata company job description link.</p>
+        <p class="link">https://www.naukri.com/job-listings-manager-cloud-security-customer-service-operations-tata-communications-ltd-pune-4-to-9-years-101024501589</p>
+    </div>
+""",
+            unsafe_allow_html=True
+        )
+
+
+def display_links():
+    st.markdown(
+        """
+        <style>
+        .box {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+        .link {
+            color: blue;
+            text-decoration: underline;
+        }
+        </style>
+
+        <div class="box">
+        <strong>Test Links:</strong> <br><br>
+        <p>Money forward company job description link.</p>
+        <a class="link" href="https://hrmos.co/pages/moneyforward/jobs/1877612029521268793" target="_blank">https://hrmos.co/pages/moneyforward/jobs/1877612029521268793</a>
+        <br><br>
+        <p>Tata company job description link.</p>
+        <a class="link" href="https://www.naukri.com/job-listings-manager-cloud-security-customer-service-operations-tata-communications-ltd-pune-4-to-9-years-101024501589?src=jobsearchDesk&sid=17288114178845667&xp=6&px=1" target="_blank">https://www.naukri.com/job-listings-manager-cloud-security-customer-service-operations-tata-communications-ltd-pune-4-to-9-years-101024501589</a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
 def create_streamlit_app(llm, portfolio, clean_text):
     st.markdown("<h1 style='font-family: Poppins;'>📧 Business Mail Generator</h1>", unsafe_allow_html=True)
+    display_links()
     url_input = st.text_input("Enter a URL:", value="Paste Job description link here")
     submit_button = st.button("Submit")
 
@@ -53,6 +113,9 @@ def create_streamlit_app(llm, portfolio, clean_text):
                 st.code(email, language='markdown')
         except Exception as e:
             st.error(f"An Error Occurred: {e}")
+
+    # Add download button for Android app APK
+
 
 if __name__ == "__main__":
     chain = Chain()
